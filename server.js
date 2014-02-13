@@ -8,9 +8,10 @@ var express = require('express')
   , videos = require('./routes/videos')
   , control = require('./routes/control')
   , http = require('http')
-  , path = require('path');
-
-var app = express();
+  , path = require('path')
+  , app = express()
+  , server = http.createServer(app)
+  , io = require('socket.io').listen(server)
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3003);
@@ -32,6 +33,18 @@ app.get('/', routes.index);
 app.get('/videos/:id', videos.list);
 app.get('/control', control.list);
 
-http.createServer(app).listen(app.get('port'), function(){
+server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
+});
+
+//some io commands - maybe we can move this to a class
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
+});
+
+io.sockets.on('connection', function(socket){
+    socket.on('play', function(){
+        io.sockets.emit('play');
+    });
 });

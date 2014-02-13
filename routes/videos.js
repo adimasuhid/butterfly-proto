@@ -5,7 +5,7 @@ exports.list = function(req, res) {
         url = "http://192.168.1.3:3003/media/" + video
 
     res.render('show', {
-        title: 'Show Video',
+        title: 'Show Video' + id,
         videoUrl: url
     });
 };

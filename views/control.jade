@@ -1,11 +1,12 @@
 extends layout
 
 block content
+  script(src="/javascripts/control.js")
   h1= title
   button#play Play
   button#pause Pause
   button#skip Skip
-  //video#example_video_1.video-js.vjs-default-skin(controls
+  video#video.video-js.vjs-default-skin(controls
     preload="auto" width="640" height="264"
     poster="http://video-js.zencoder.com/oceans-clip.png"
     data-setup='{"example_option":true}')
