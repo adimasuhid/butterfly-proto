@@ -7,4 +7,7 @@ block content
     poster="http://video-js.zencoder.com/oceans-clip.png"
     data-setup='{"example_option":true}')
     source(src="#{videoUrl}" type='video/mp4')
+  script.
+    //maybe move this to backbone for scoping
+    window.transitions = !{transitions}
 

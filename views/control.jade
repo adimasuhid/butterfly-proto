@@ -3,12 +3,15 @@ extends layout
 block content
   script(src="/javascripts/control.js")
   h1= title
-  button#play Play
-  button#pause Pause
-  button#skip Skip
   video#video.video-js.vjs-default-skin(controls
     preload="auto" width="640" height="264"
     poster="http://video-js.zencoder.com/oceans-clip.png"
     data-setup='{"example_option":true}')
     source(src="#{videoUrl}" type='video/mp4')
+  button#play Play
+  button.scene(data-val= "a") Scene A
+  button.scene(data-val= "b") Scene B
+  button.scene(data-val= "c") Scene C
+  script.
+    window.transitions = !{transitions}
 

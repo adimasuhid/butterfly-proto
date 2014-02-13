@@ -47,4 +47,8 @@ io.sockets.on('connection', function(socket){
     socket.on('play', function(){
         io.sockets.emit('play');
     });
+
+    socket.on('move', function(data){
+        io.sockets.emit('move', data);
+    });
 });
