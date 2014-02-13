@@ -51,4 +51,8 @@ io.sockets.on('connection', function(socket){
     socket.on('move', function(data){
         io.sockets.emit('move', data);
     });
+
+    socket.on('pause', function(){
+        io.sockets.emit('pause');
+    });
 });

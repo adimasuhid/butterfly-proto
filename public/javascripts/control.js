@@ -12,6 +12,12 @@ $(function(){
         socket.emit('move', {scene: val});
     }
 
+    function pause(){
+        console.log("pausing...");
+        socket.emit("pause");
+    }
+
     $("#play").on("click",play);
     $(".scene").on("click", moveScene);
+    $("#pause").on("click", pause)
 });

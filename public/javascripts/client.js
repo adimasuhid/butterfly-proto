@@ -13,4 +13,8 @@ $(function(){
 
         player.currentTime(moveTimeInSec);
     });
+
+    socket.on('pause', function(){
+        player.pause();
+    });
 });
