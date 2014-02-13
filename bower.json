@@ -4,7 +4,7 @@
   "authors": [
     "Ace Dimasuhid <ace.dimasuhid@gmail.com>"
   ],
-  "description": "Multi-Screen Video Control via Socket.io and VideoJS",
+  "description": "Multi-Screen Video Control via WS and VideoJS",
   "main": "server.js",
   "keywords": [
     "video",
