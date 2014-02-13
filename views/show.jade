@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  video#example_video_1.video-js.vjs-default-skin(controls
+    preload="auto" width="640" height="264"
+    poster="http://video-js.zencoder.com/oceans-clip.png"
+    data-setup='{"example_option":true}')
+    source(src="#{videoUrl}" type='video/mp4')
+
