@@ -2,10 +2,13 @@ var sequence = require("../sequence/sequence"),
     _ = require("underscore"),
     config = require("../config/config.js")
 
+function getUrl(name) {
+    return "http://" + config.ip + ":3003/media/" + name
+}
+
 exports.list = function(req, res) {
     var id = "main",
-        video = id+".mp4",
-        url = "http://" + config.ip + ":3003/media/" + video,
+        url = getUrl("main.mp4"),
         videoSequence = _.find(sequence, function(seq){ return seq.id == id})
 
     res.render('control', {

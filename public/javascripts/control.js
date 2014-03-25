@@ -18,7 +18,13 @@ $(function(){
         socket.emit("pause");
     }
 
+    function reset(){
+        console.log("resetting...");
+        socket.emit("reset");
+    }
+
     $("#play").on("click",play);
     $(".scene").on("click", moveScene);
     $("#pause").on("click", pause)
+    $("#reset").on("click", reset)
 });

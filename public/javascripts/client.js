@@ -33,4 +33,11 @@ $(function(){
     socket.on('pause', function(){
         player.pause();
     });
+
+    socket.on('reset', function(){
+        window.currentTransition = "initial";
+        var src = window.transitions[window.currentTransition];
+        player.src({ type: "video/mp4",  src: src });
+        player.load();
+    });
 });

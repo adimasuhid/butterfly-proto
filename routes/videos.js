@@ -2,11 +2,14 @@ var sequence = require("../sequence/sequence"),
     _ = require("underscore"),
     config = require("../config/config.js")
 
+function getUrl(name) {
+    return "http://" + config.ip + ":3003/media/" + name
+}
+
 exports.list = function(req, res) {
     //move this to a class
     var id = req.params.id,
-        video = "vid" + id + ".mp4",
-        url = "http://" + config.ip + ":3003/media/" + video,
+        url = getUrl("vid"+id+".mp4"),
         videoSequence = _.find(sequence, function(seq){ return seq.id == id})
 
     res.render('show', {

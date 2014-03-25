@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  script(src="/javascripts/control.js")
+  h1= title
+  video#video.video-js.vjs-default-skin(style="display: none")(controls
+    preload="auto" width="640" height="264"
+    data-setup='{"example_option":true}')
+    source(src="#{videoUrl}" type='video/mp4')
+  button#play Play
+  button#pause Pause
+  button#reset Reset
+  script.
+    $(function(){
+      $("#video").hide();
+    });

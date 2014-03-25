@@ -7,6 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , videos = require('./routes/videos')
   , control = require('./routes/control')
+  , primary = require('./routes/primary')
   , http = require('http')
   , path = require('path')
   , app = express()
@@ -32,6 +33,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/videos/:id', videos.list);
 app.get('/control', control.list);
+app.get('/main', primary.list);
 
 server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
@@ -54,5 +56,9 @@ io.sockets.on('connection', function(socket){
 
     socket.on('pause', function(){
         io.sockets.emit('pause');
+    });
+
+    socket.on('reset', function(){
+        io.sockets.emit('reset');
     });
 });
