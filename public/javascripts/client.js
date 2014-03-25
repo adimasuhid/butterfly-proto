@@ -19,11 +19,7 @@ $(function(){
             player.play();
         });
 
-        player.addEvent("loadeddata", function(){
-            player.play();
-        });
-
-        player.currentTime(moveTimeInSec);
+        //player.currentTime(moveTimeInSec);
     });
 
     socket.on('pause', function(){
