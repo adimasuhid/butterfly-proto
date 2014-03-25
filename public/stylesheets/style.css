@@ -11,3 +11,11 @@ a {
 .vjs-loading-spinner{
   display: none !important;
 }
+
+#buttons {
+    text-align:center;
+    width: 100%;
+    display: none;
+    position: absolute;
+    bottom: 45%
+}

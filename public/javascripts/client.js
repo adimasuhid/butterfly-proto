@@ -2,6 +2,13 @@ $(function(){
     var socket = io.connect(),
         player = videojs("video");
 
+    player.on("ended", function(){
+        if (window.currentTransition = "initial") {
+            $("#buttons").appendTo("#video");
+            $("#buttons").show();
+        }
+    });
+
     socket.on('play', function(){
         player.play();
     });
@@ -12,6 +19,7 @@ $(function(){
             //moveTimeInSec = moveTime / 1000;
 
         var src = window.transitions[data.scene];
+        window.currentTransition = data.scene;
 
         player.src({ type: "video/mp4",  src: src });
         player.load();

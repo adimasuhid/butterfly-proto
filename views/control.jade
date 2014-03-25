@@ -5,14 +5,15 @@ block content
   h1= title
   video#video.video-js.vjs-default-skin(controls
     preload="auto" width="640" height="264"
-    poster="http://video-js.zencoder.com/oceans-clip.png"
     data-setup='{"example_option":true}')
     source(src="#{videoUrl}" type='video/mp4')
   button#play Play
   button#pause Pause
-  button.scene(data-val= "a") Scene A
-  button.scene(data-val= "b") Scene B
-  button.scene(data-val= "c") Scene C
+  #buttons
+    button.scene(data-val= "a") Scene A
+    button.scene(data-val= "b") Scene B
+    button.scene(data-val= "c") Scene C
   script.
     window.transitions = !{transitions}
+    window.currentTransition = "initial"
 

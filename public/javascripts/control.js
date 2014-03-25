@@ -8,6 +8,7 @@ $(function(){
 
     function moveScene(e){
         var val = $(e.target).attr("data-val");
+        $("#buttons").hide();
         console.log("movings scene to "+ val + "...");
         socket.emit('move', {scene: val});
     }
